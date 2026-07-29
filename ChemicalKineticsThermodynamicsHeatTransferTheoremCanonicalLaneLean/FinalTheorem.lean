@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean.ReactionKineticsPackage
+import ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean.MolecularOrbitalTheoryPackage
+import ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean.ThermodynamicsPackage
+import ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean.HeatTransferPackage
+import ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean.EquilibriumReactionCoordinatePackage
+
+namespace HautevilleHouse
+namespace ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean
+
+def ConstrainedChemicalKineticsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_chemical_kinetics_endgame (A : AdmissibleClass) :
+    ConstrainedChemicalKineticsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ChemicalKineticsThermodynamicsHeatTransferTheoremCanonicalLaneLean
+end HautevilleHouse
